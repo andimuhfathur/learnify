@@ -1,0 +1,59 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id_Account     String     @id @default(cuid())
+  image_Account  String
+  username       String
+  email          String     @unique
+  password       String
+  role           Role       @default(USER)
+  tanggalAccount DateTime   @default(now())
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model Beasiswa {
+  id_Beasiswa   String   @id @default(cuid())
+  image_Besiswa String
+  title         String
+  deskripsi     String
+  linkBea       String
+  deadline      DateTime
+  tanggalbea    DateTime @default(now())
+}
+
+
+model Seminar {
+  idSeminar   String   @id @default(cuid())
+  imageSem    String
+  title       String
+  deskripsi   String
+  linkSem     String
+  deadline    DateTime
+  tanggalBuat DateTime @default(now())
+}
+
+model Komentar {
+  idKomentar  String   @id @default(cuid())
+  username String
+  isiKomentar String
+  tanggalBuat DateTime @default(now())
+}
+

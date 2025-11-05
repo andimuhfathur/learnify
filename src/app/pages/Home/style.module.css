@@ -1,0 +1,333 @@
+:global(*) {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+}
+
+.body {
+    background-color: #f5f8ff;
+    color: #333;
+}
+
+
+.header {
+    background-color: #1976d2;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.sidebar a{
+    display: none;
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
+
+.menuIcon {
+    font-size: 26px;
+    cursor: pointer;
+    display: none;
+}
+
+.loginBtn {
+    color: black;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+
+/* .hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+}
+
+.heroText {
+    max-width: 500px;
+    text-align: left;
+    margin: 15px;
+}
+
+.heroText h2 {
+    font-size: 32px;
+    color: #0d47a1;
+    margin-bottom: 15px;
+}
+
+.heroText p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.heroText button {
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.heroText button:hover {
+    background-color: #0d47a1;
+}
+
+.hero img {
+    max-width: 400px;
+    width: 90%;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+} */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Parallax background */
+.parallax {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../../../public/imagebebas/Gambar\ WhatsApp\ 2025-11-02\ pukul\ 14.27.23_1406a9cc.jpg");
+    /* Ganti dengan path gambar kamu */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
+}
+
+/* Konten hero di atas background */
+.heroContent {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    color: #fff;
+}
+
+/* Teks dan tombol */
+.heroText {
+    max-width: 500px;
+    text-align: left;
+    margin: 15px;
+    background: rgba(0, 0, 0, 0.4);
+    /* agar teks tetap terbaca */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.heroText h2 {
+    font-size: 32px;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.heroText p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #e3f2fd;
+}
+
+.heroText button {
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.heroText button:hover {
+    background-color: #0d47a1;
+}
+
+/* Gambar */
+.heroImage {
+    max-width: 400px;
+    width: 90%;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.container {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.container h3 {
+    color: #0d47a1;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.cardGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    background-color: #e3f2fd;
+}
+
+
+.komentar {
+    background-color: #e3f2fd;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.komentar h3 {
+    color: #0d47a1;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.komentar form {
+    max-width: 500px;
+    margin: 0 auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.komentar input,
+.komentar textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.komentar button {
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.komentar button:hover {
+    background-color: #0d47a1;
+}
+
+
+.about {
+    background-color: white;
+    padding: 50px 25px;
+    text-align: center;
+}
+
+.about h3 {
+    color: #0d47a1;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.about p {
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+
+.footer {
+    background-color: #1976d2;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+}
+
+
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+
+    .menuIcon {
+        display: block;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 220px;
+        height: 100%;
+        background-color: #1565c0;
+        padding-top: 60px;
+        transition: 0.3s;
+    }
+
+    .sidebar a {
+        display: block;
+        padding: 12px 20px;
+        color: white;
+        text-decoration: none;
+    }
+
+    .sidebar a:hover {
+        background-color: #1e88e5;
+    }
+
+    .show {
+        left: 0;
+    }
+}

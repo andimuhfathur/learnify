@@ -1,0 +1,167 @@
+:global(*) {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.body {
+    background-color: #f5f8ff;
+    color: #333;
+    min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+    background-color: #1976d2;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
+
+.menuIcon {
+    font-size: 26px;
+    cursor: pointer;
+    display: none;
+}
+
+.sidebar a {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+
+    .menuIcon {
+        display: block;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 220px;
+        height: 100%;
+        background-color: #1565c0;
+        padding-top: 60px;
+        transition: 0.3s;
+    }
+
+    .sidebar a {
+        display: block;
+        padding: 12px 20px;
+        color: white;
+        text-decoration: none;
+    }
+
+    .sidebar a:hover {
+        background-color: #1e88e5;
+    }
+
+    .show {
+        left: 0;
+    }
+}
+
+/* FORM SECTION */
+.formSection {
+    max-width: 700px;
+    margin: 60px auto;
+    background-color: white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.formSection h2 {
+    color: #0d47a1;
+    margin-bottom: 10px;
+}
+
+.formSection p {
+    color: #555;
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+
+.formContainer {
+    text-align: left;
+}
+
+.formGroup {
+    margin-bottom: 20px;
+}
+
+.formGroup label {
+    display: block;
+    font-weight: 600;
+    color: #0d47a1;
+    margin-bottom: 8px;
+}
+
+.formGroup input,
+.formGroup textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+    border-color: #1976d2;
+    outline: none;
+}
+
+.submitBtn {
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.submitBtn:hover {
+    background-color: #0d47a1;
+}
+
+/* FOOTER */
+.footer {
+    background-color: #1976d2;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    margin-top: 40px;
+}
