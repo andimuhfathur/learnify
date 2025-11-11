@@ -6,7 +6,7 @@ export async function GET(req) {
         const { searchParams } = new URL(req.url)
         
         const page = parseInt(searchParams.get('page') || '1', 10)
-        const limit = parseInt(searchParams.get('page') || '10', 12)
+        const limit = parseInt(searchParams.get('limit') || '10', 12)
 
         if (page < 1 || limit < 1) {
             console.log("data salah");

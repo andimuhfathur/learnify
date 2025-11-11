@@ -6,7 +6,7 @@ body {
 }
 
 .header {
-    background: linear-gradient(90deg, #1976d2, #42a5f5);
+    background: #1565c0;
     color: white;
     padding: 15px 25px;
     display: flex;
@@ -59,6 +59,8 @@ body {
 
 .h2 {
     color: #1976d2;
+    font-size: 1.5rem;
+    font-weight: 700;
     margin-bottom: 5px;
 }
 
@@ -85,7 +87,7 @@ body {
 
 .button {
     width: 95%;
-    background-color: #82caff;
+    background-color: #ff8c1a;
     color: white;
     border: none;
     padding: 10px;

@@ -1,55 +1,127 @@
-.container {
-    text-align: left;
-    max-width: 600px;
-    background-color: white;
-    margin: 60px auto;
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.8s ease;
+.header {
+    background-color: #0b3d91;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-.title {
-    text-align: center;
-    color: #333;
-    font-size: 28px;
-    margin-bottom: 20px;
+.sidebar {
+    position: fixed;
+    top: 50;
+    left: -300px;
+    width: 255px;
+    height: 100vh;
+    background-color: #0b3d91;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 60px 20px;
+    transition: left 0.3s ease-in-out;
+    z-index: 100;
 }
 
-.deskripsi {
-    color: #555;
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 25px;
+.sidebar.show {
+    left: 0;
+
 }
 
-.infoBox {
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    padding: 15px;
-    border: 1px solid #ddd;
-}
-
-.infoBox p {
-    margin: 8px 0;
-    font-size: 15px;
-}
-
-.loading {
-    text-align: center;
-    margin-top: 100px;
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    margin: 15px 0;
     font-size: 18px;
-    color: #666;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+.header h1 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 1s;
+}
+
+.nav a:hover {
+    color: #ff8c1a;
+}
+
+.menuIcon {
+    font-size: 26px;
+    cursor: pointer;
+    display: none;
+}
+
+.loginBtn {
+    color: black;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+.footerNew {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background: #f4f7fc;
+    padding: 60px 40px;
+    color: #333;
+    text-align: left;
+    border-top: 3px solid #0b3d91;
+}
+
+.footerNew h4 {
+    color: #0b3d91;
+    margin-bottom: 16px;
+    font-size: 18px;
+}
+
+.footerCol ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footerCol ul li {
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.footerCol img {
+    margin-top: 10px;
+    border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+
+    .menuIcon {
+        display: block;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .nav {
+        display: none;
+        /* sembunyikan navbar utama di mobile */
+    }
+
+         .footerNew {
+             flex-direction: column;
+             align-items: center;
+             text-align: center;
+         }
+
+   
+}
+
+@media (min-width: 769px) {
+    .sidebar {
+        display: none;
     }
 }

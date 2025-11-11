@@ -74,8 +74,8 @@ const FormSeminar = () => {
                 <h1>Learnify</h1>
                 <nav className={styles.nav}>
                     <Link href={"/"}>Beranda</Link>
-                    <Link href={"/pages/Beasiswa"}>Seminar</Link>
-                    <Link href={"/pages/Seminar"}>Seminar</Link>
+                    <Link href={"/pages/Admin/FormBeasiswa"}>Seminar</Link>
+                    <Link href={"/pages/Admin/FormSeminar"}>Seminar</Link>
                     <Link href={"/pages/Admin"}>Admin</Link>
                 </nav>
                 <span className={styles.menuIcon} onClick={toggleSidebar}>☰</span>
@@ -84,8 +84,8 @@ const FormSeminar = () => {
             {/* SIDEBAR */}
             <div className={`${styles.sidebar} ${showSidebar ? styles.show : ""}`}>
                 <Link href={"/"}>Beranda</Link>
-                <Link href={"/pages/Seminar"}>Seminar</Link>
-                <Link href={"/pages/Seminar"}>Seminar</Link>
+                <Link href={"/pages/Admin/FormSeminar"}>Seminar</Link>
+                <Link href={"/pages/Admin/FormSeminar"}>Seminar</Link>
                 <Link href={"/pages/Admin"}>Admin</Link>
             </div>
 

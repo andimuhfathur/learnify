@@ -12,6 +12,8 @@ export async function POST(req) {
             return Response.json({message : "user belum memberi data"}, {status: 400}) 
         }
 
+       
+
         const cekemail = await prisma.Account.findUnique({
             where: {
                 email : email

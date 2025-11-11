@@ -6,7 +6,7 @@ body {
 }
 
 .header {
-    background-color: #1976d2;
+    background-color: #0b3d91;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -24,7 +24,7 @@ body {
 }
 
 .backBtn {
-    
+
     color: white;
     border: none;
     padding: 8px 15px;
@@ -53,10 +53,11 @@ body {
     margin-left: 20px;
     text-decoration: none;
     font-weight: 500;
+    transition: all 1s;
 }
 
 .nav a:hover {
-    text-decoration: underline;
+    color: #ff8c1a;
 }
 
 .menuIcon {
@@ -73,32 +74,28 @@ body {
 
 .container {
     display: flex;
-        flex-direction: column;
-        /* susun elemen ke bawah */
-        align-items: center;
-        /* posisi tengah horizontal */
-        justify-content: center;
-        /* posisi tengah vertikal (opsional) */
-        text-align: center;
-        max-width: 450px;
-        background-color: white;
-        margin: 60px auto;
-        border-radius: 15px;
-        padding: 30px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        animation: fadeIn 0.8s ease;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 450px;
+    background-color: white;
+    margin: 60px auto;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease;
 }
 
 .profilePic {
     display: block;
-        margin: 0 auto 15px auto;
-        /* pusatkan dan beri jarak bawah */
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 4px solid #42a5f5;
-        cursor: pointer;
+    margin: 0 auto 15px auto;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #42a5f5;
+    cursor: pointer;
 }
 
 .h2 {
@@ -147,7 +144,7 @@ body {
 .footer {
     text-align: center;
     padding: 15px;
-    background-color: #1976d2;
+    background-color: #0b3d91;
     color: white;
     margin-top: 50px;
 }
@@ -173,7 +170,7 @@ body {
         display: block;
     }
 
-    .backBtn{
+    .backBtn {
         background-color: #1976d2;
         color: white;
         font-weight: 100;

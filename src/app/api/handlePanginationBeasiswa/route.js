@@ -6,7 +6,8 @@ export async function GET(req) {
         const { searchParams } = new URL(req.url)
         
         const page = parseInt(searchParams.get('page') || '1', 10)
-        const limit = parseInt(searchParams.get('page') || '10', 12)
+        const limit = parseInt(searchParams.get('limit') || '10', 12)
+        const type = searchParams.get("type")
 
         if (page < 1 || limit < 1) {
             console.log("data salah");
@@ -15,14 +16,19 @@ export async function GET(req) {
         }
 
         const skip = (page - 1) * limit
+
+        const where = type ? {type} : {}
         
         const [posts, total] = await Promise.all([
             prisma.Beasiswa.findMany({
+                where,
                 skip,
                 take: limit,
                 orderBy: { tanggalbea: 'desc' },
             }),
-            prisma.Beasiswa.count()
+            prisma.Beasiswa.count({
+                where: where
+            })
         ])
 
         const totalPage = Math.ceil(total / limit)
@@ -36,7 +42,8 @@ export async function GET(req) {
                 page,
                 limit,
                 total,
-                totalPage
+                totalPage,
+                filter : type || "semua"
             }
         }, { status: 201 })
         

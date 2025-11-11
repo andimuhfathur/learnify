@@ -35,10 +35,11 @@
     margin-left: 20px;
     text-decoration: none;
     font-weight: 500;
+    transition: all 1s;
 }
 
 .nav a:hover {
-    text-decoration: underline;
+    color:#ff8c1a;
 }
 
 .menuIcon {

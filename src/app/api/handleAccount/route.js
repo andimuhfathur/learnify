@@ -1,8 +1,16 @@
 `use server`
-import { writeFileSync } from "fs"
+import { existsSync, mkdirSync, writeFileSync } from "fs"
 import path from "path"
-
 import { prisma } from "../../lib/prisma/prisma"
+import { v2 as cloudinary } from "cloudinary";
+
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
 
 
 export async function POST(req) {
@@ -34,16 +42,19 @@ export async function POST(req) {
             return Response.json({message : "data sudah ada"}, {status : 409})
         }
 
-        const namaImage = `${Date.now()}-${image.name}`
-        const letakFile = path.join(process.cwd(), "public/imageAccount", namaImage)
-        const ubahBuffer = await image.arrayBuffer()
+        const buffer = Buffer.from(await image.arrayBuffer());
+        const base64 = buffer.toString("base64");
+        const dataUri = `data:${image.type};base64,${base64}`;
 
-        writeFileSync(letakFile, Buffer.from(ubahBuffer))
+
+        const uploadResult = await cloudinary.uploader.upload(dataUri, {
+            folder: "account", // semua gambar disimpan di folder "beasiswa"
+        });
 
         const createAccount = await prisma.Account.create({
             data: {
                 username: username,
-                image_Account: `/imageAccount/${namaImage}`,
+                image_Account: uploadResult.secure_url,
                 email: email,
                 password : password
             }
@@ -73,7 +84,7 @@ export async function GET(req) {
         if (dataAccount) {
             console.log(`data user : \n ${dataAccount}`);
             
-            return Response.json({ message: "data user ada" }, {status: 202})
+            return Response.json({ message: "data user ada", data : dataAccount }, {status: 202})
         }
     } catch (err) {
         console.error("data user gagal diperlihatkan", err);

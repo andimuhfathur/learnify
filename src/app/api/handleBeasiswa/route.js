@@ -1,7 +1,15 @@
 `use server`
 import path from "path"
-import { writeFileSync } from "fs"
+import { existsSync, mkdirSync, writeFileSync } from "fs"
 import { prisma } from "@/app/lib/prisma/prisma"
+import { v2 as cloudinary } from "cloudinary";
+
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 export async function POST(req) {
     try {
@@ -12,43 +20,39 @@ export async function POST(req) {
         const imageBea = await formData.get("imageBea")
         const deskrip = await formData.get("deskrip")
         const linkBe = await formData.get("linkBe")
+        const type = await formData.get("type")
         const deadl = await formData.get("deadl")
 
-        if (!title || !imageBea || !deskrip || !linkBe || !deadl) {
+        if (!title || !imageBea || !deskrip || !linkBe || !deadl || !type) {
             console.log("data yang masukkan tidak lengkap");
             return Response.json({message : "Data yang anda masukkan tidak lengkap"}, {status : 400})
         }
 
-        // const cekBeaTitle = await prisma.Beasiswa.findUnique({
-        //     where: {
-        //        title : title 
-        //     }
-        // })
+       
+        const buffer = Buffer.from(await imageBea.arrayBuffer());
+        const base64 = buffer.toString("base64");
+        const dataUri = `data:${imageBea.type};base64,${base64}`;
 
-        // if (cekBeaTitle) {
-        //     console.log("Beasiswa sudah ada");
-        //     return Response.json({ message: "Beasiswa sudah ada" }, { status: 409 })
-        // }
+       
+        const uploadResult = await cloudinary.uploader.upload(dataUri, {
+            folder: "beasiswa", // semua gambar disimpan di folder "beasiswa"
+        });
 
-        const nameFile = `${Date.now()}-${imageBea.name}`
-        const letakFile = path.join(process.cwd(), '/public/imageBeasiswa', nameFile)
-        const ubahBuffer = await imageBea.arrayBuffer()
-
-        writeFileSync(letakFile, Buffer.from(ubahBuffer))
 
         const createBea = await prisma.Beasiswa.create({
             data: {
                 title: title,
-                image_Besiswa: `/imageBeasiswa/${nameFile}`,
+                image_Besiswa: uploadResult.secure_url,
                 deskripsi: deskrip,
                 linkBea: linkBe,
+                type : type,
                 deadline: new Date(deadl)
             }
         })
 
         if (createBea) {
             console.log("Beasiswa Berhasil Terupload");
-            return Response.json({ message: "Beasiswa Berhasil Di Upload" }, { status: 201 })
+            return Response.json({ message: "Beasiswa Berhasil Di Upload", data: createBea }, { status: 201 })
         }
 
     } catch (err) {
@@ -67,6 +71,10 @@ export async function GET(req) {
             console.log(`data Bea : \n ${dataBea}`);
             return Response.json({ message: "data Bea ada", data : dataBea }, { status: 202 })
         }
+
+        console.log("data belum ada")
+        return Response.json({message : "data belum ada"}, {status: 404})
+        
     } catch (err) {
         console.log(`data Bea : \n `,err);
         return Response.json({ message: "masalah bang" }, { status: 500 })

@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Learnify",
+  title: "Beasiswara",
   description: "Website Beasiswa dan Seminar",
 };
 

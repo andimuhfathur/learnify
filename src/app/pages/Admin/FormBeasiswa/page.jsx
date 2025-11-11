@@ -18,6 +18,7 @@ const FormBeasiswa = () => {
     const [title, settitle] = useState("");
     const [deskripsi, setdeskripsi] = useState("");
     const [image, setImage] = useState(null);
+    const [type, setype] = useState("");
     const [link, setlink] = useState("");
     const [date, setdate] = useState("");
     const [loading, setLoading] = useState(false);
@@ -31,6 +32,7 @@ const FormBeasiswa = () => {
         formData.append("title", title);
         formData.append("imageBea", image);
         formData.append("deskrip", deskripsi);
+        formData.append("type", type)
         formData.append("deadl", date);
         formData.append("linkBe", link);
 
@@ -48,6 +50,7 @@ const FormBeasiswa = () => {
                 setdeskripsi("")
                 setlink("")
                 setImage(null)
+                setype("")
                 setdate("")
                 setTimeout(() => router.push("/pages/Admin/FormBeasiswa"), 1500);
             } else if (res.status === 409) {
@@ -71,11 +74,11 @@ const FormBeasiswa = () => {
             <Toaster position="top-center" />
             {/* HEADER */}
             <header className={styles.header}>
-                <h1>Learnify</h1>
+                <h1>Beasiswara</h1>
                 <nav className={styles.nav}>
                     <Link href={"/"}>Beranda</Link>
-                    <Link href={"/pages/Beasiswa"}>Beasiswa</Link>
-                    <Link href={"/pages/Seminar"}>Seminar</Link>
+                    <Link href={"/pages/Admin/FormBeasiswa"}>Beasiswa</Link>
+                    <Link href={"/pages/Admin/FormSeminar"}>Seminar</Link>
                     <Link href={"/pages/Admin"}>Admin</Link>
                 </nav>
                 <span className={styles.menuIcon} onClick={toggleSidebar}>☰</span>
@@ -84,14 +87,14 @@ const FormBeasiswa = () => {
             {/* SIDEBAR */}
             <div className={`${styles.sidebar} ${showSidebar ? styles.show : ""}`}>
                 <Link href={"/"}>Beranda</Link>
-                <Link href={"/pages/Beasiswa"}>Beasiswa</Link>
-                <Link href={"/pages/Seminar"}>Seminar</Link>
+                <Link href={"/pages/Admin/FormBeasiswa"}>Beasiswa</Link>
+                <Link href={"/pages/Admin/FormSeminar"}>Seminar</Link>
                 <Link href={"/pages/Admin"}>Admin</Link>
             </div>
 
             {/* FORM SECTION */}
             <section className={styles.formSection}>
-                <h2>Form Pendaftaran Beasiswa</h2>
+                <h2 className="font-bold text-2xl">Form Pendaftaran Beasiswa</h2>
                 <p>Isi data berikut untuk menambahkan informasi beasiswa baru.</p>
 
                 <form className={styles.formContainer}>
@@ -138,6 +141,18 @@ const FormBeasiswa = () => {
                             name="deadline"
                             value={date}
                             onChange={(e) => setdate(e.target.value)}
+                            required
+                        />
+                    </div>
+
+                    <div className={styles.formGroup}>
+                        <label>Type Beasiswa (D3,D4,S1 ,S2 ,S3)</label>
+                        <input
+                            type="text"
+                            name="type"
+                            value={type}
+                            onChange={(e) => setype(e.target.value)}
+                            placeholder="Masukkan type beasiswa"
                             required
                         />
                     </div>

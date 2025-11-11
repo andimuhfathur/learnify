@@ -16,10 +16,10 @@ datasource db {
 
 model Account {
   id_Account     String     @id @default(cuid())
-  image_Account  String
-  username       String
+  image_Account  String?
+  username       String?
   email          String     @unique
-  password       String
+  password       String?
   role           Role       @default(USER)
   tanggalAccount DateTime   @default(now())
 }
@@ -33,18 +33,18 @@ model Beasiswa {
   id_Beasiswa   String   @id @default(cuid())
   image_Besiswa String
   title         String
-  deskripsi     String
+  deskripsi     String @db.MediumText
+  type          String
   linkBea       String
   deadline      DateTime
   tanggalbea    DateTime @default(now())
 }
 
-
 model Seminar {
   idSeminar   String   @id @default(cuid())
   imageSem    String
   title       String
-  deskripsi   String
+  deskripsi   String @db.MediumText
   linkSem     String
   deadline    DateTime
   tanggalBuat DateTime @default(now())
@@ -52,8 +52,9 @@ model Seminar {
 
 model Komentar {
   idKomentar  String   @id @default(cuid())
-  username String
+  username      String
   isiKomentar String
   tanggalBuat DateTime @default(now())
-}
 
+  
+}

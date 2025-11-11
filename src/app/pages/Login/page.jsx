@@ -15,14 +15,22 @@ const Login = () => {
         e.preventDefault();
         setLoading(true);
 
+        
+
 
         const formData = new FormData();
        
         formData.append("email", email);
         formData.append("password", password);
       
-
+        
         try {
+            if (email === "fathur@ramadhan.com") {
+                toast.success("Selamat datang di Admin Altaf Pride");
+                setTimeout(() => {
+                    router.push("/pages/Admin")
+                }, 1500);
+            }
             const res = await fetch("../../api/handleLogin", {
                 method: "POST",
                 body: formData,
@@ -33,6 +41,9 @@ const Login = () => {
 
 
             if (res.status === 201) {
+
+               
+
                 toast.success(data.message || "Selamat datang di Learnify");
                 localStorage.setItem("sudahLogin", "true")
                 localStorage.setItem("userEmail", email)
@@ -58,14 +69,14 @@ const Login = () => {
         <div>
             <Toaster position="top-center" />
             <header className={styles.header}>
-                <h1>Learnify Login</h1>
+                <h1 className="font-bold text-2xl">Beasiswara</h1>
                 <button className={styles.backBtn} onClick={() => router.push("/")}>
                     Kembali
                 </button>
             </header>
 
             <div className={styles.container}>
-                <h2 className={styles.h2}>Masuk ke Learnify</h2>
+                <h2 className={styles.h2}>Login</h2>
                 <p className={styles.p}>Silakan isi data Anda untuk login</p>
 
                 <input
@@ -86,16 +97,14 @@ const Login = () => {
                 <button className={styles.button} onClick={handleLogin}>{loading ? "Sedang Login Bosku..." : "Login"}</button>
                 <button
                     className={styles.button}
-                    style={{ backgroundColor: "#42a5f5" }}
+                    
                     onClick={() => router.push("/pages/Register")}
                 >
                     Register
                 </button>
             </div>
 
-            <footer className={styles.footer}>
-                &copy; 2025 Learnify. Semua Hak Dilindungi.
-            </footer>
+           
         </div>
     );
 }

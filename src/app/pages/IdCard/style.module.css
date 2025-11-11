@@ -1,0 +1,95 @@
+.teamSection {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f4f7fc;
+}
+
+.teamSection h2 {
+    color: #0b3d91;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.desc {
+    color: #555;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+.teamSection button {
+    background: #ff6b00;
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.teamSection button:hover {
+    background: #e65f00;
+    transform: scale(1.05);
+}
+
+.teamGrid {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    display: flexbox;
+    opacity: 0;
+    transform: translateY(20px);
+    background: #fff;
+    width: auto;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(11, 61, 145, 0.15);
+    transition: all 0.5s ease;
+}
+
+.cardKonter {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cardTeamSagapung {
+    display: block;
+    text-align: left;
+}
+
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(11, 61, 145, 0.2);
+}
+
+.card img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 12px;
+    border: 3px solid #ff6b00;
+}
+
+.card h3 {
+    margin: 6px 0;
+    color: #0b3d91;
+    font-size: 16px;
+}
+
+.card p {
+    margin: 3px 0;
+    color: #444;
+    font-size: 14px;
+}

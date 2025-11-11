@@ -1,8 +1,19 @@
 `use server`
  
 import path from "path"
-import { writeFileSync } from "fs"
+import { existsSync, mkdirSync, writeFileSync } from "fs"
 import { prisma } from "@/app/lib/prisma/prisma"
+import { v2 as cloudinary } from "cloudinary";
+
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+
+
 
 export async function POST(req) {
     try {
@@ -31,16 +42,19 @@ export async function POST(req) {
         //     return Response.json({ message: "Beasiswa sudah ada" }, { status: 409 })
         // }
 
-        const nameFile = `${Date.now()}-${imageBea.name}`
-        const letakFile = path.join(process.cwd(), '/public/iamgeSeminar', nameFile)
-        const ubahBuffer = await imageBea.arrayBuffer()
+        const buffer = Buffer.from(await imageBea.arrayBuffer());
+        const base64 = buffer.toString("base64");
+        const dataUri = `data:${imageBea.type};base64,${base64}`;
 
-        writeFileSync(letakFile, Buffer.from(ubahBuffer))
+
+        const uploadResult = await cloudinary.uploader.upload(dataUri, {
+            folder: "seminar", // semua gambar disimpan di folder "beasiswa"
+        });
 
         const createSem = await prisma.Seminar.create({
             data: {
                 title: title,
-                imageSem: `/iamgeSeminar/${nameFile}`,
+                imageSem: uploadResult.secure_url,
                 deskripsi: deskrip,
                 linkSem: linkBe,
                 deadline: new Date(deadl)
@@ -68,6 +82,10 @@ export async function GET(req) {
             console.log(`data Sem : \n ${dataSem}`);
             return Response.json({ message: "data Bea ada", data : dataSem }, { status: 202 })
         }
+
+        console.log("data belum ada")
+        return Response.json({ message: "data belum ada" }, { status: 404 })
+
     } catch (err) {
         console.log(`data Bea : \n `,err);
         return Response.json({ message: "masalah bang" }, { status: 500 })

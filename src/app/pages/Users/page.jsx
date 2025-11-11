@@ -40,7 +40,7 @@ const UserPage = () => {
 
                 if (res.ok) {
                     setUser(data);
-                    toast.success(`Selamat datang, ${data.name}!`, {
+                    toast.success(`Selamat datang, ${data.email}!`, {
                         duration: 3000,
                         position: "top-center",
                     });
@@ -119,9 +119,7 @@ const UserPage = () => {
                 <p className={styles.p}>{user.email}</p>
             </div>
 
-            <footer className={styles.footer}>
-                &copy; 2025 Learnify. Semua Hak Dilindungi.
-            </footer>
+            
         </div>
     );
 };

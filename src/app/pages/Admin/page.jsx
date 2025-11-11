@@ -7,6 +7,8 @@ import Link from "next/link";
 const AdminPage = () => {
     const [showSidebar, setShowSidebar] = useState(false);
     const [users, setUsers] = useState([]);
+    const [beasiswa, setbeasiswa] = useState([]);
+    const [seminar, setseminar] = useState([]);
 
     const toggleSidebar = () => setShowSidebar(!showSidebar);
 
@@ -14,29 +16,23 @@ const AdminPage = () => {
     useEffect(() => {
 
         const datauser = async () => {
-            setUsers([
-                {
-                    id: 1,
-                    image: "/imagebebas/download.jpeg",
-                    username: "nia_rpl",
-                    email: "nia@example.com",
-                    password: "•••••••",
-                    role: "User",
-                    createdAt: "2025-11-02",
-                },
-                {
-                    id: 2,
-                    image: "/imagebebas/download.jpeg",
-                    username: "admin_learnify",
-                    email: "admin@learnify.com",
-                    password: "•••••••",
-                    role: "Admin",
-                    createdAt: "2025-10-29",
-                },
-            ]);
-            
+            const url = await fetch("../../api/handleAccount")
+            const res = await url.json()
+            setUsers(res.data)
         }
         datauser()
+        const databea = async () => {
+            const url = await fetch("../../api/handleBeasiswa")
+            const res = await url.json()
+            setbeasiswa(res.data)
+        }
+        databea()
+        const datasem = async () => {
+            const url = await fetch("../../api/handleSeminar")
+            const res = await url.json()
+            setseminar(res.data)
+        }
+        datasem()
 
         
     }, []);
@@ -63,9 +59,9 @@ const AdminPage = () => {
                 <Link href={"/pages/Login"}>Logout</Link>
             </div>
 
-          
+          {/* table User */}
             <section className={styles.adminContainer}>
-                <h2>Daftar User Learnify</h2>
+                <h2>Daftar User Beasiswara</h2>
             
                 <div className={styles.tableWrapper}>
                     <table className={styles.table}>
@@ -80,43 +76,161 @@ const AdminPage = () => {
                                 <th>Tanggal Akun</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            {users.map((user) => (
-                                <tr key={user.id}>
-                                    <td>{user.id}</td>
-                                    <td>
-                                        <Image
-                                            src={user.image}
-                                            alt={user.username}
-                                            width={45}
-                                            height={45}
-                                            className={styles.userImage}
-                                        />
+                        {users ? (
+                            <tbody>
+                                {users.map((user) => (
+                                    <tr key={user.id_Account}>
+                                        <td>{user.id_Account}</td>
+                                        <td>
+                                            <Image
+                                                src={user.image_Account}
+                                                alt={user.username}
+                                                width={45}
+                                                height={45}
+                                                className={styles.userImage}
+                                            />
+                                        </td>
+                                        <td>{user.username}</td>
+                                        <td>{user.email}</td>
+                                        <td>{user.password}</td>
+                                        <td>
+                                            <span
+                                                className={
+                                                    user.role === "Admin"
+                                                        ? styles.roleAdmin
+                                                        : styles.roleUser
+                                                }
+                                            >
+                                                {user.role}
+                                            </span>
+                                        </td>
+                                        <td>{new Date(user.tanggalAccount)
+                                            .toISOString()
+                                            .split("T")[0]}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        ) : (
+                                <tbody className=""><tr>
+                                    <td colSpan="7" style={{ textAlign: "center" }}>
+                                        Maaf, data beasiswa belum ada.
                                     </td>
-                                    <td>{user.username}</td>
-                                    <td>{user.email}</td>
-                                    <td>{user.password}</td>
-                                    <td>
-                                        <span
-                                            className={
-                                                user.role === "Admin"
-                                                    ? styles.roleAdmin
-                                                    : styles.roleUser
-                                            }
-                                        >
-                                            {user.role}
-                                        </span>
-                                    </td>
-                                    <td>{user.createdAt}</td>
-                                </tr>
-                            ))}
-                        </tbody>
+                                </tr></tbody> 
+                        )}
+                        
                     </table>
                 </div>
             </section>
 
+            {/* table beasiswa */}
+            <section className={styles.adminContainer}>
+                <h2>Daftar Beasiswa Beasiswara</h2>
+
+                <div className={styles.tableWrapper}>
+                    <table className={styles.table}>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Foto</th>
+                                <th>Title</th>
+                                <th>Deskripsi</th>
+                                <th>Type</th>
+                                <th>Link</th>
+                                <th>deadline</th>
+                            </tr>
+                        </thead>
+                        
+                            {beasiswa ? (
+                            <tbody>
+                                    {beasiswa.map((user) => (
+                                        <tr key={user.id_Beasiswa}>
+                                            <td>{user.id_Beasiswa}</td>
+                                            <td>
+                                                <Image
+                                                    src={user.image_Besiswa}
+                                                    alt={user.title}
+                                                    width={45}
+                                                    height={45}
+                                                    className={styles.userImage}
+                                                />
+                                            </td>
+                                            <td>{user.title}</td>
+                                            <td className="w-20 whitespace-nowrap text-ellipsis font-normal overflow-hidden">{user.deskripsi}</td>
+                                            <td>{user.type}</td>
+                                            <td>{user.linkBea}</td>
+                                            <td>{new Date(user.deadline)
+                                                .toISOString()
+                                                .split("T")[0]}</td>
+                                        </tr>
+                                    ))}
+                            </tbody>
+                            ) : (
+                                <tbody className=""><tr>
+                                    <td colSpan="7" style={{ textAlign: "center" }}>
+                                        Maaf, data beasiswa belum ada.
+                                    </td>
+                                </tr></tbody>
+                            )}
+                            
+                       
+                    </table>
+                </div>
+            </section>
+
+            {/* table seminar */}
+            <section className={styles.adminContainer}>
+                <h2>Daftar seminar Beasiswara</h2>
+
+                <div className={styles.tableWrapper}>
+                    <table className={styles.table}>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Foto</th>
+                                <th>Title</th>
+                                <th>Deskripsi</th>
+                                <th>Link</th>
+                                <th>deadline</th>
+                            </tr>
+                        </thead>
+                        {seminar ? (
+                            <tbody>
+                                {seminar.map((user) => (
+                                    <tr key={user.idSeminar}>
+                                        <td>{user.idSeminar}</td>
+                                        <td>
+                                            <Image
+                                                src={user.imageSem}
+                                                alt={user.title}
+                                                width={45}
+                                                height={45}
+                                                className={styles.userImage}
+                                            />
+                                        </td>
+                                        <td>{user.title}</td>
+                                        <td className="w-20 whitespace-nowrap text-ellipsis font-normal overflow-hidden">{user.deskripsi}</td>
+                                        <td>{user.linkSem}</td>
+                                        <td>{new Date(user.deadline)
+                                            .toISOString()
+                                            .split("T")[0]}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        ) : (
+                                <tbody><tr>
+                                    <td colSpan="7" style={{ textAlign: "center" }}>
+                                        Maaf, data beasiswa belum ada.
+                                    </td>
+                                </tr></tbody>
+                        )}
+                        
+                    </table>
+                </div>
+            </section>
+
+
             <footer className={styles.footer}>
-                © 2025 Learnify Admin Dashboard.
+                © 2025 Admin Beasiswara Altaf Pride.
             </footer>
         </div>
     );

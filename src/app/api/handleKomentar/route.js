@@ -35,18 +35,22 @@ export async function POST(req) {
     }
 }
 
-// export async function GET(req) {
-//     try {
-//         const dataBea = await prisma.Komentar.findMany()
+export async function GET(req) {
+    try {
+        const dataBea = await prisma.Komentar.findMany()
 
-//         if (dataBea.length > 0) {
-//             console.log(`data Bea : \n ${dataBea}`);
-//             return Response.json({ message: "data Bea ada", data : dataBea }, { status: 202 })
-//         }
-//     } catch (err) {
-//         console.log(`data Bea : \n `,err);
-//         return Response.json({ message: "masalah bang" }, { status: 500 })
-//     } finally {
-//         await prisma.$disconnect()
-//     }
-// }
+        if (dataBea.length > 0) {
+            console.log(`data Bea : \n ${dataBea}`);
+            return Response.json({ message: "data Bea ada", data : dataBea }, { status: 202 })
+        }
+
+        console.log("data belum ada")
+        return Response.json({ message: "data belum ada" }, { status: 404 })
+
+    } catch (err) {
+        console.log(`data Bea : \n `,err);
+        return Response.json({ message: "masalah bang" }, { status: 500 })
+    } finally {
+        await prisma.$disconnect()
+    }
+}

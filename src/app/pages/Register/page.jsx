@@ -54,14 +54,14 @@ const Register = () => {
         <div>
             <Toaster position="top-center" />
             <header className={styles.header}>
-                <h1>Learnify Register</h1>
+                <h1 className="font-bold text-2xl">Beasiswara</h1>
                 <button className={styles.backBtn} onClick={() => router.push("/")}>
                     Kembali
                 </button>
             </header>
 
             <div className={styles.container}>
-                <h2 className={styles.h2}>Daftar ke Learnify</h2>
+                <h2 className={styles.h2}>Register</h2>
                 <p className={styles.p}>Isi data Anda untuk membuat akun baru</p>
 
                 <input
@@ -97,9 +97,7 @@ const Register = () => {
                 <button className={styles.button} onClick={handleRegister}>{loading ? "Sedang Daftar Bosku" : "Daftar"}</button>
             </div>
 
-            <footer className={styles.footer}>
-                &copy; 2025 Learnify. Semua Hak Dilindungi.
-            </footer>
+           
         </div>
     );
 }
