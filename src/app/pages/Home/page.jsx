@@ -93,8 +93,8 @@ const Dashboard = () => {
         <div className={styles.page}>
             <Toaster position="top-center" />
             <header className={styles.header}>
-                <div className="">
-                {/* <Image src={img5} className="w-8 h-8" width={200} height={200} alt="Altaf"></Image> */}
+                <div className="flex items-center justify-center h-auto">
+                <Image src={img5} className="w-11 h-11" width={200} height={200} alt="Altaf"></Image>
                 <h1 className="font-light">Beasiswara</h1>
                 </div>
                 <nav className={styles.nav}>
@@ -152,7 +152,7 @@ const Dashboard = () => {
                 {/* {logi ? (<Link href={"../pages/Users"} className={styles.loginBtn}>Users</Link>) : (<Link href={"../pages/Login"} className={styles.loginBtn}>Login</Link>)} */}
                 <div className={styles.cardContainer}>
                     <div data-aos="fade-left" className={`${styles.cardBox} ${styles.orange}`}>
-                        <h3>🎓 Beasiswa Unggulan</h3>
+                        <h3>Beasiswa Unggulan</h3>
                         <p>
                             Temukan berbagai beasiswa nasional maupun internasional untuk
                             mendukung pendidikanmu. Beasiswara membantu kamu menemukan peluang
@@ -162,7 +162,7 @@ const Dashboard = () => {
                     </div>
 
                     <div data-aos="zoom-in" data-aos-delay="200" className={`${styles.cardBox} ${styles.teal}`}>
-                        <h3>🚀 The Beasiswara Team</h3>
+                        <h3>The Beasiswara Team</h3>
                         <p>
                             Kami bukan sekadar tim — kami adalah sekelompok pemimpi dan pembuat perubahan.
                             Dari ide kecil hingga jadi platform edukasi digital, setiap anggota Beasiswara berkontribusi untuk membantu generasi muda menemukan peluang belajar tanpa batas.
@@ -171,7 +171,7 @@ const Dashboard = () => {
                     </div>
 
                     <div data-aos="fade-right" data-aos-delay="400" className={`${styles.cardBox} ${styles.blue}`}>
-                        <h3>📚 Seminar Edukatif</h3>
+                        <h3>Seminar Edukatif</h3>
                         <p>
                             Ikuti seminar inspiratif dan edukatif dengan pembicara hebat dari
                             berbagai bidang. Kembangkan kemampuan dan perluas relasi.
@@ -252,9 +252,9 @@ const Dashboard = () => {
                 <div className={styles.footerCol}>
                     <h4>Relationship Partner</h4>
                     <div className="grid grid-cols-3 gap-4">
-                        <Image src={img2} className="w-8 h-8 object-cover" alt="Logo Beasiswara" width="130" />
-                        <Image src={img3} className="w-8 h-8 object-cover" alt="Logo Beasiswara" width="130" />
                         <Image src={img4} className="w-8 h-8 object-cover" alt="Logo Beasiswara" width="130" />
+                        <Image src={img3} className="w-8 h-8 object-cover" alt="Logo Beasiswara" width="130" />
+                        <Image src={img2} className="w-8 h-8 object-cover" alt="Logo Beasiswara" width="130" />
                     </div>
                    
                 </div>
@@ -273,10 +273,10 @@ const Dashboard = () => {
                 <div className={styles.footerCol}>
                     <h4>Hubungi Kami</h4>
                     <p>Senin–Minggu @ 08.00–22.00</p>
-                    <p>📱 +62 851-7991-3755 (Admin 1 Argazora)</p>
-                    <p>📱 +62 851-3591-3826 (Admin 2 Altaf )</p>
+                    <p> +62 851-7991-3755 (Admin 1 Argazora)</p>
+                    <p> +62 851-3591-3826 (Admin 2 Altaf )</p>
                     <p>✉ halo@Beasiswara.id</p>
-                    <p>📍 Sulawesi Selatan</p>
+                    <p> Sulawesi Selatan</p>
                 </div>
             </footer>
 

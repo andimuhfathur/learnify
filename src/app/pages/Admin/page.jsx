@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import img5 from "../../../../public/imagebebas/Gambar_WhatsApp_2025-11-05_pukul_23.46.30_f3b38eab-removebg-preview - Copy.png"
+
 
 const AdminPage = () => {
     const [showSidebar, setShowSidebar] = useState(false);
@@ -41,7 +43,10 @@ const AdminPage = () => {
         <div className={styles.body}>
             
             <header className={styles.header}>
-                <h1>Learnify Admin</h1>
+               <div className="flex items-center justify-center h-auto">
+                               <Image src={img5} className="w-11 h-11" width={200} height={200} alt="Altaf"></Image>
+                               <h1 className="font-light">Beasiswara</h1>
+                               </div>
                 <nav className={styles.nav}>
                     <Link href={"/"}>Beranda</Link>
                     <Link href={"/pages/Admin/FormBeasiswa"}>Beasiswa</Link>

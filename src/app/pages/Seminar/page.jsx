@@ -6,6 +6,7 @@ import img1 from "../../../../public/imagebebas/download.jpeg";
 import img2 from "../../../../public/imagebebas/logo dice 25.png"
 import img3 from "../../../../public/imagebebas/logo sensation.png"
 import img4 from "../../../../public/imagebebas/PNUP (1).png"
+import img5 from "../../../../public/imagebebas/Gambar_WhatsApp_2025-11-05_pukul_23.46.30_f3b38eab-removebg-preview - Copy.png"
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -62,7 +63,10 @@ const Seminar = () => {
         <div className={styles.body}>
             {/* Header */}
             <header className={styles.header}>
-                <h1>Beasiswara</h1>
+               <div className="flex items-center justify-center h-auto">
+                               <Image src={img5} className="w-11 h-11" width={200} height={200} alt="Altaf"></Image>
+                               <h1 className="font-light">Beasiswara</h1>
+                               </div>
                 <nav className={styles.nav}>
                     <Link href={"/"}>Beranda</Link>
                     <Link href={"../pages/Beasiswa"}>Beasiswa</Link>
@@ -220,9 +224,9 @@ const Seminar = () => {
                 <div className={styles.footerCol}>
                     <h4>Relationship Partner</h4>
                     <div className="grid grid-cols-3 gap-4">
-                        <Image src={img2} className="w-8 h-8 object-cover" alt="Logo Beasiswara" width="130" />
-                        <Image src={img3} className="w-8 h-8 object-cover" alt="Logo Beasiswara" width="130" />
                         <Image src={img4} className="w-8 h-8 object-cover" alt="Logo Beasiswara" width="130" />
+                        <Image src={img3} className="w-8 h-8 object-cover" alt="Logo Beasiswara" width="130" />
+                        <Image src={img2} className="w-8 h-8 object-cover" alt="Logo Beasiswara" width="130" />
                     </div>
 
                 </div>

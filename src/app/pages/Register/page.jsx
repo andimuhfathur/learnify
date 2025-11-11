@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./styles.module.css";
 import { toast, Toaster } from "react-hot-toast";
+import img5 from "../../../../public/imagebebas/Gambar_WhatsApp_2025-11-05_pukul_23.46.30_f3b38eab-removebg-preview - Copy.png"
+import Image from "next/image";
+
 
 const Register = () => {
     const router = useRouter();
@@ -54,7 +57,10 @@ const Register = () => {
         <div>
             <Toaster position="top-center" />
             <header className={styles.header}>
-                <h1 className="font-bold text-2xl">Beasiswara</h1>
+               <div className="flex items-center justify-center h-auto">
+                               <Image src={img5} className="w-11 h-11" width={200} height={200} alt="Altaf"></Image>
+                               <h1 className="font-light">Beasiswara</h1>
+                               </div>
                 <button className={styles.backBtn} onClick={() => router.push("/")}>
                     Kembali
                 </button>
