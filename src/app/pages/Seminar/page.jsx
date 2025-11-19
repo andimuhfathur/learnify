@@ -62,7 +62,7 @@ const Seminar = () => {
     return (
         <div className={styles.body}>
             {/* Header */}
-            <header className={styles.header}>
+            <header className={`${styles.header} shadow-2xl`}>
                <div className="flex items-center justify-center h-auto">
                                <Image src={img5} className="w-11 h-11" width={200} height={200} alt="Altaf"></Image>
                                <h1 className="font-light">Beasiswara</h1>
@@ -103,10 +103,10 @@ const Seminar = () => {
             </div>
 
             {/* Hero Section */}
-            <section className={styles.heroSection}>
-                <div className={styles.heroContent}>
+            <section className={`${styles.heroSection}  shadow-2xl`}>
+                {/* <div className={styles.heroContent}>
                     <h1>Seminar</h1>
-                </div>
+                </div> */}
             </section>
 
             <hr />
@@ -130,11 +130,11 @@ const Seminar = () => {
                                             alt={datas.title}
                                             className="object-cover w-full h-full brightness-90 hover:scale-105 transform transition-all duration-500"
                                         />
-                                        <div className="absolute left-4 top-4 flex gap-2">
+                                        {/* <div className="absolute left-4 top-4 flex gap-2">
                                             <span className="text-xs font-medium bg-white/80 px-2 py-1 rounded-full shadow-sm">
                                                 Seminar
                                             </span>
-                                        </div>
+                                        </div> */}
                                         <div className="absolute right-4 top-4">
                                             
                                         </div>
@@ -154,7 +154,7 @@ const Seminar = () => {
                                             <div>
                                                 <p className="text-xs text-slate-500">Batas waktu</p>
                                                 <p
-                                                    className={`text-sm font-medium ${new Date(datas.deadline) < new Date() ? "text-red-600" : "text-green-600"
+                                                    className={`text-[1.1rem] font-medium ${new Date(datas.deadline) < new Date() ? "text-red-600" : "text-green-600"
                                                         }`}
                                                 >
                                                     {new Date(datas.deadline).toISOString().split("T")[0]}
@@ -173,10 +173,10 @@ const Seminar = () => {
                                             </div>
                                         </div>
 
-                                        <div className="mt-4 flex items-center justify-between text-xs text-slate-400">
+                                        {/* <div className="mt-4 flex items-center justify-between text-xs text-slate-400">
                                           
                                             <span>Level: S1</span>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </article>
                             ))
@@ -234,21 +234,19 @@ const Seminar = () => {
                 <div className={styles.footerCol}>
                     <h4>Beasiswara</h4>
                     <ul>
-                        <li>About Us</li>
-                        <li>Kerja Sama</li>
-                        <li>Karier</li>
-                        <li>Kebijakan Privasi</li>
-                        <li>Syarat & Ketentuan</li>
+                        <li><Link href={"/"}>Beranda</Link></li>
+                        <li><Link href={"../pages/Beasiswa"}>Beasiswa</Link></li>
+                        <li><Link href={"../pages/Seminar"}>Seminar</Link></li>
+                        <li><Link href={"../pages/IdCard"}>Team</Link></li>
                     </ul>
                 </div>
 
                 <div className={styles.footerCol}>
                     <h4>Hubungi Kami</h4>
-                    <p>Senin–Minggu 08.00–22.00</p>
-                    <p>📱 +62 851-7991-3755 (Admin 1 Argazora)</p>
-                    <p>📱 +62 851-3591-3826 (Admin 2 Altaf )</p>
-                    <p>✉ halo@Beasiswara.id</p>
-                    <p>📍 Sulawesi Selatan</p>
+                    <p>Jadwal : Senin–Minggu 08.00–22.00</p>
+                    <Link href={"https://wa.me/082156779245?text=Halo%20kak%20Ganteng!"}>Nomor : +62 821-5677-9245 (Admin 1 Argazora)</Link> <br />
+                    <Link href={"https://wa.me/081355442332?text=Halo%20kak%20Tampan!"}>Nomor : +62 813-5544-2332 (Admin 2 Altaf )</Link>
+                    <p>Provinsi : Sulawesi Selatan</p>
                 </div>
             </footer>
         </div>

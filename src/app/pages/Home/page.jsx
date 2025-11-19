@@ -12,7 +12,7 @@ import img2 from "../../../../public/imagebebas/logo dice 25.png"
 import img3 from "../../../../public/imagebebas/logo sensation.png"
 import img4 from "../../../../public/imagebebas/PNUP (1).png"
 import img5 from "../../../../public/imagebebas/Gambar_WhatsApp_2025-11-05_pukul_23.46.30_f3b38eab-removebg-preview - Copy.png"
-
+import img6 from "../../../../public/imagebebas/Foto wisuda 1.jpg"
 
 
 const Dashboard = () => {
@@ -62,7 +62,7 @@ const Dashboard = () => {
 
 
         try {
-            const res = await fetch("../../api/handleKomentar", {
+            const res = await fetch("../../api/handleKomentar?limit=3", {
                 method: "POST",
                 body: formData,
             });
@@ -99,6 +99,7 @@ const Dashboard = () => {
                 </div>
                 <nav className={styles.nav}>
                     <Link href={"/"}>Beranda</Link>
+                    <Link href={"../pages/IdCard"}>Team</Link>
                     <Link href={"../pages/Beasiswa"}>Beasiswa</Link>
                     <Link href={"../pages/Seminar"}>Seminar</Link>
                     {logi ? (<Link href={"../pages/Users"} className={styles.loginBtn}>Users</Link>) : (<Link href={"../pages/Login"} className={styles.loginBtn}>Login</Link>)}
@@ -110,6 +111,7 @@ const Dashboard = () => {
 
             <div className={`${styles.sidebar} ${showSidebar ? styles.show : ""}`}>
                 <Link href={"/"}>Beranda</Link>
+                <Link href={"../pages/IdCard"}>Team</Link>
                 <Link href={"../pages/Beasiswa"}>Beasiswa</Link>
                 <Link href={"../pages/Seminar"}>Seminar</Link>
                 {logi ? (<Link href={"../pages/Users"} className={styles.loginBtn}>Users</Link>) : (<Link href={"../pages/Login"} className={styles.loginBtn}>Login</Link>)}
@@ -119,37 +121,25 @@ const Dashboard = () => {
                 <div className={styles.heroContent}>
                     <h1>Temukan Beasiswa Impianmu </h1>
                     <p>
-                        Satu langkah menuju masa depanmu! Cari beasiswa dan seminar terbaik di Beasiswara.
+                        Beasiswara merupakan gabungan dari kata “Beasiswa” dan “Seminar”, yang berarti platform informasi tentang peluang beasiswa dan kegiatan seminar pendidikan. Nama ini mencerminkan semangat belajar dan pengembangan diri bagi pelajar dan mahasiswa.
                     </p>
                     <button onClick={() => router.push("#beasiswaraSec")}>Cari Sekarang</button>
                 </div>
 
                 <div className={styles.heroImage}>
-                    <Image src={img1} className="object-cover h-80" width={340} height={340} alt="Beasiswara Hero" />
+                    <Image src={img6} className="object-cover h-80" width={340} height={340} alt="Beasiswara Hero" />
                 </div>
             </section>
 
             <section className={styles.bannerAkhir}>
-                <p>Cobain Semua di Beasiswara — Temukan Beasiswa, Seminar, dan Karier Impianmu!</p>
+                <p>Satu Klik Untuk Beasiswa dan Wawasan Baru</p>
             </section>
 
-            <section className={`${styles.beasiswaSection} border-b-2 border-[#ff8c1a]`} id="beasiswaraSec">
+            <section className={`${styles.beasiswaSection} border-b-2 border-[#ff8c1a]`} id = "beasiswaraSec" >
                 <h2 data-aos="fade-up">Maju Bersama Beasiswara</h2>
                 <div className={styles.stats}>
-                    <div data-aos="zoom-in">
-                        <h3>10</h3>
-                        <p>Total Beasiswa</p>
-                    </div>
-                    <div data-aos="zoom-in">
-                        <h3>3</h3>
-                        <p>Jumlah Team Beasiswara</p>
-                    </div>
-                    <div data-aos="zoom-in">
-                        <h3>6</h3>
-                        <p>Total Seminar</p>
-                    </div>
                 </div>
-                {/* {logi ? (<Link href={"../pages/Users"} className={styles.loginBtn}>Users</Link>) : (<Link href={"../pages/Login"} className={styles.loginBtn}>Login</Link>)} */}
+{/* {logi ? (<Link href={"../pages/Users"} className={styles.loginBtn}>Users</Link>) : (<Link href={"../pages/Login"} className={styles.loginBtn}>Login</Link>)} */ }
                 <div className={styles.cardContainer}>
                     <div data-aos="fade-left" className={`${styles.cardBox} ${styles.orange}`}>
                         <h3>Beasiswa Unggulan</h3>
@@ -159,15 +149,6 @@ const Dashboard = () => {
                             terbaik sesuai jurusan dan minatmu.
                         </p>
                         <button className="text-black" onClick={() => router.push("/pages/Beasiswa")}>Jelajahi Beasiswa</button>
-                    </div>
-
-                    <div data-aos="zoom-in" data-aos-delay="200" className={`${styles.cardBox} ${styles.teal}`}>
-                        <h3>The Beasiswara Team</h3>
-                        <p>
-                            Kami bukan sekadar tim — kami adalah sekelompok pemimpi dan pembuat perubahan.
-                            Dari ide kecil hingga jadi platform edukasi digital, setiap anggota Beasiswara berkontribusi untuk membantu generasi muda menemukan peluang belajar tanpa batas.
-                        </p>
-                        <button onClick={() => router.push("/pages/IdCard")}>Lihat Team</button>
                     </div>
 
                     <div data-aos="fade-right" data-aos-delay="400" className={`${styles.cardBox} ${styles.blue}`}>
@@ -180,39 +161,39 @@ const Dashboard = () => {
                     </div>
 
 
+                </div >
+
+
+
+            </section >
+
+    <section className="bg-[#F5C542] border-b-2 border-[#ff8c1a]">
+        {logi ?
+            (
+                <div data-aos="zoom-in" className={`${styles.commentBox} border-b-2 border-[#0b3d91]`} id={"komentar"}>
+        <h3 className="font-bold text-xl">Bagaimana Pengalaman Anda ?</h3>
+        <input className="text-black" type="text" placeholder="Nama kamu..." onChange={(e) => setusername(e.target.value)} />
+        <textarea className="text-black" placeholder="Tulis komentar kamu..." onChange={(e) => setisikomen(e.target.value)}></textarea>
+        <button onClick={handleKomen}>{loading ? "Kirim Komentar" : "Komentar"}</button>
+
+
+        <div className={`${styles.commentList} `}>
+        {data.map((datas) => {
+            return (
+                <div key={datas.idKomentar} className={styles.commentItem}>
+                    <h4>{datas.username}</h4>
+                    <p>{datas.isiKomentar}</p>
                 </div>
+            )
+        })}
 
 
-
-            </section>
-
-            <section className="bg-[#c4dfe6] border-b-2 border-[#ff8c1a]">
-                {logi ?
-                    (
-                        <div data-aos="zoom-in" className={`${styles.commentBox} border-b-2 border-[#0b3d91]`} id={"komentar"}>
-                            <h3 className="font-bold text-xl">Bagaimana Pengalaman Anda ?</h3>
-                            <input className="text-black" type="text" placeholder="Nama kamu..." onChange={(e) => setusername(e.target.value)} />
-                            <textarea className="text-black" placeholder="Tulis komentar kamu..." onChange={(e) => setisikomen(e.target.value)}></textarea>
-                            <button onClick={handleKomen}>{loading ? "Kirim Komentar" : "Komentar"}</button>
-
-
-                            <div className={`${styles.commentList} overflow-y-scroll scroll-hidden`}>
-                                {data.map((datas) => {
-                                    return (
-                                        <div key={datas.idKomentar} className={styles.commentItem}>
-                                            <h4>{datas.username}</h4>
-                                            <p>{datas.isiKomentar}</p>
-                                        </div>
-                                    )
-                                })}
-
-
-                            </div>
-                        </div>
+    </div>
+                        </div >
                     ) : (
-                        <div data-aos="zoom-in" className={`${styles.commentBox} border-b-2 border-[#0b3d91]`}>
+    <div data-aos="zoom-in" className={`${styles.commentBox} border-b-2 border-[#0b3d91]`}>
                             <h3 className="font-bold text-xl">Pengalaman Orang</h3>
-                            <div className={`${styles.commentList} overflow-y-scroll scroll-hidden`}>
+                            <div className={`${styles.commentList} `}>
                                 {data.map((datas) => {
                                     return (
                                         <div key={datas.idKomentar} className={styles.commentItem}>
@@ -224,17 +205,16 @@ const Dashboard = () => {
 
 
                             </div>
-                        </div>
+                        </div >
                     )}
-            </section>
-            
+            </section >
 
 
 
             <section className={`${styles.tentangKami} border-b-2 `}>
                 <h2 data-aos="fade-in">Tentang Kami</h2>
                 <p data-aos="zoom-in" data-aos-delay="200">
-                    Beasiswara adalah platform pendidikan yang menyediakan informasi beasiswa dan seminar untuk membantu pelajar dan mahasiswa mengembangkan potensi diri. Kami berkomitmen untuk menjadi jembatan antara siswa dan peluang pendidikan terbaik.
+                    Kami adalah kelompok yang berfokus pada pengembangan dan penyebaran informasi seputar beasiswa serta seminar pendidikan. Tujuan kami adalah membantu pelajar dan mahasiswa mendapatkan peluang belajar yang lebih luas dan bermanfaat.
                 </p>
                 <div className={styles.tentangGrid}>
                     <div data-aos="zoom-in" data-aos-delay="400">
@@ -256,33 +236,31 @@ const Dashboard = () => {
                         <Image src={img3} className="w-8 h-8 object-cover" alt="Logo Beasiswara" width="130" />
                         <Image src={img2} className="w-8 h-8 object-cover" alt="Logo Beasiswara" width="130" />
                     </div>
-                   
                 </div>
 
                 <div className={styles.footerCol}>
                     <h4>Beasiswara</h4>
                     <ul>
-                        <li>About Us</li>
-                        <li>Kerja Sama</li>
-                        <li>Karier</li>
-                        <li>Kebijakan Privasi</li>
-                        <li>Syarat & Ketentuan</li>
+                        <li><Link href={"/"}>Beranda</Link></li>
+                        <li><Link href={"../pages/Beasiswa"}>Beasiswa</Link></li>
+                        <li><Link href={"../pages/Seminar"}>Seminar</Link></li>
+                        <li><Link href={"../pages/IdCard"}>Team</Link></li>
                     </ul>
                 </div>
 
                 <div className={styles.footerCol}>
                     <h4>Hubungi Kami</h4>
-                    <p>Senin–Minggu @ 08.00–22.00</p>
-                    <p> +62 851-7991-3755 (Admin 1 Argazora)</p>
-                    <p> +62 851-3591-3826 (Admin 2 Altaf )</p>
-                    <p>✉ halo@Beasiswara.id</p>
-                    <p> Sulawesi Selatan</p>
+                    <p>Jadwal: Senin–Minggu @ 08.00–22.00</p>
+                    <p>Nomor: +62 851-7991-3755 (Admin 1 Argazora)</p>
+                    <p>Nomor: +62 851-3591-3826 (Admin 2 Altaf )</p>
+                    <p>Email: ✉ halo@Beasiswara.id</p>
+                    <p>Kota: Makassar</p>
                 </div>
             </footer>
 
 
 
-        </div>
+        </div >
     );
 }
 

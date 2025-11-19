@@ -19,8 +19,8 @@ const TeamSection = () => {
             age: 21,
             image: img4,
             Peran: "Dosen Pembimbing",
-            major: "Dosen Teknik Informatika dan Komputer",
-            hobi: "Coding",
+            major: "Teknik Informatika dan Komputer",
+            Bidang: "Artificial Intelligence, Machine Learning, Data Science, Data Mining",
         },
         {
             name: "Muh. Althaf Andriansyah",
@@ -28,7 +28,7 @@ const TeamSection = () => {
             image: img1,
             Peran: "Ketua",
             major: "Teknik Informatika dan Komputer",
-            hobi: "Olahraga Basket",
+            Bidang: "Front-End",
         },
         {
             name: "Argazora Ziya Anindya",
@@ -36,7 +36,7 @@ const TeamSection = () => {
             image: img3,
             Peran: "Anggota",
             major: "Teknik Informatka dan Komputer",
-            hobi: "Gamer",
+            Bidang: "DataBase",
         },
         {
             name: "A. Muh. Fathur Ramadhan",
@@ -44,7 +44,7 @@ const TeamSection = () => {
             image: img2,
             Peran: "Anggota",
             major: "Teknik Informatika dan Komputer",
-            hobi: "Jogging",
+            Bidang: "Back-End",
         },
     ], []);
 
@@ -87,7 +87,7 @@ const TeamSection = () => {
                                     <p>Umur: {member.age} tahun</p>
                                     <p>Peran: {member.Peran}</p>
                                     <p>Jurusan: {member.major}</p>
-                                    <p>Hobi: {member.hobi}</p>
+                                    <p>Bidang: {member.Bidang}</p>
                                 </div>
                             </div>
                         </div>

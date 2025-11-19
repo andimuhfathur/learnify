@@ -37,7 +37,12 @@ export async function POST(req) {
 
 export async function GET(req) {
     try {
-        const dataBea = await prisma.Komentar.findMany()
+        const { searchParams } = new URL(req.url);
+        const limit = parseInt(searchParams.get("limit")) || 3;
+        const dataBea = await prisma.Komentar.findMany({
+            take: limit,
+            orderBy: { tanggalBuat: "desc" }
+        })
 
         if (dataBea.length > 0) {
             console.log(`data Bea : \n ${dataBea}`);

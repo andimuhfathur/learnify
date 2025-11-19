@@ -74,7 +74,7 @@ export default function HalNew({ seminarId }) {
                             src={sem.imageSem}
                             width={200}
                             height={200}
-                            className="w-200 h-100 object-cover shadow-2xl rounded-xl"
+                            className="w-auto h-auto object-cover shadow-2xl rounded-xl"
                             priority
                             alt="seminar"
                         />
@@ -107,21 +107,19 @@ export default function HalNew({ seminarId }) {
                 <div className={styles.footerCol}>
                     <h4>Beasiswara</h4>
                     <ul>
-                        <li>About Us</li>
-                        <li>Kerja Sama</li>
-                        <li>Karier</li>
-                        <li>Kebijakan Privasi</li>
-                        <li>Syarat & Ketentuan</li>
+                        <li><Link href={"/"}>Beranda</Link></li>
+                        <li><Link href={"../../pages/Beasiswa"}>Beasiswa</Link></li>
+                        <li><Link href={"../../pages/Seminar"}>Seminar</Link></li>
+                        <li><Link href={"../../pages/IdCard"}>Team</Link></li>
                     </ul>
                 </div>
 
                 <div className={styles.footerCol}>
                     <h4>Hubungi Kami</h4>
-                    <p>Senin–Minggu @ 08.00–22.00</p>
-                    <p>📱 +62 851-7991-3755 (Admin 1 Argazora)</p>
-                    <p>📱 +62 851-3591-3826 (Admin 2 Altaf )</p>
-                    <p>✉ halo@Beasiswara.id</p>
-                    <p>📍 Sulawesi Selatan</p>
+                    <p>Jadwal : Senin–Minggu 08.00–22.00</p>
+                    <Link href={"https://wa.me/082156779245?text=Halo%20kak%20Ganteng!"}>Nomor : +62 821-5677-9245 (Admin 1 Argazora)</Link> <br />
+                    <Link href={"https://wa.me/081355442332?text=Halo%20kak%20Tampan!"}>Nomor : +62 813-5544-2332 (Admin 2 Altaf )</Link>
+                    <p>Provinsi : Sulawesi Selatan</p>
                 </div>
             </footer>
         </div>

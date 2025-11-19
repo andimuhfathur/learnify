@@ -1,5 +1,5 @@
 .header {
-    background-color: #0b3d91;
+    background-color: #1c3870;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -17,7 +17,7 @@
     left: -300px;
     width: 255px;
     height: 100vh;
-    background-color: #0b3d91;
+    background-color: #1c3870;
     color: white;
     display: flex;
     flex-direction: column;
@@ -72,15 +72,15 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    background: #f4f7fc;
+    background: linear-gradient(135deg, #0b3d91, #f5b642);
     padding: 60px 40px;
-    color: #333;
+    color: #fff;
     text-align: left;
-    border-top: 3px solid #0b3d91;
+    border-top: 3px solid #466f;
 }
 
 .footerNew h4 {
-    color: #0b3d91;
+    color: #f1c15d;
     margin-bottom: 16px;
     font-size: 18px;
 }

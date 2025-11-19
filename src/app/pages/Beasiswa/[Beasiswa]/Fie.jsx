@@ -72,9 +72,9 @@ export default function HalNew({ seminarId }) {
                     <div className="flex gap-8 p-4">
                         <Image
                             src={sem.image_Besiswa}
-                            width={200}
-                            height={200}
-                            className="w-200 h-100 object-cover shadow-2xl rounded-xl"
+                            width={300}
+                            height={300}
+                            className="w-auto h-auto object-cover shadow-2xl rounded-xl"
                             priority
                             alt="seminar"
                         />
@@ -101,27 +101,25 @@ export default function HalNew({ seminarId }) {
                         <Image src={img3} className="w-8 h-8 object-cover" alt="Logo Beasiswara" width="130" />
                         <Image src={img2} className="w-8 h-8 object-cover" alt="Logo Beasiswara" width="130" />
                     </div>
-
                 </div>
 
                 <div className={styles.footerCol}>
                     <h4>Beasiswara</h4>
                     <ul>
-                        <li>About Us</li>
-                        <li>Kerja Sama</li>
-                        <li>Karier</li>
-                        <li>Kebijakan Privasi</li>
-                        <li>Syarat & Ketentuan</li>
+                        <li><Link href={"/"}>Beranda</Link></li>
+                        <li><Link href={"../pages/Beasiswa"}>Beasiswa</Link></li>
+                        <li><Link href={"../pages/Seminar"}>Seminar</Link></li>
+                        <li><Link href={"../pages/IdCard"}>Team</Link></li>
                     </ul>
                 </div>
 
                 <div className={styles.footerCol}>
                     <h4>Hubungi Kami</h4>
-                    <p>Senin–Minggu @ 08.00–22.00</p>
-                    <p>📱 +62 851-7991-3755 (Admin 1 Argazora)</p>
-                    <p>📱 +62 851-3591-3826 (Admin 2 Altaf )</p>
-                    <p>✉ halo@Beasiswara.id</p>
-                    <p>📍 Sulawesi Selatan</p>
+                    <p>Jadwal: Senin–Minggu @ 08.00–22.00</p>
+                    <p>Nomor: +62 851-7991-3755 (Admin 1 Argazora)</p>
+                    <p>Nomor: +62 851-3591-3826 (Admin 2 Altaf )</p>
+                    <p>Email: ✉ halo@Beasiswara.id</p>
+                    <p>Kota: Makassar</p>
                 </div>
             </footer>
         </div>
